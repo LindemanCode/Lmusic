@@ -47,6 +47,7 @@ dependencies:
   get_it: ^7.6.7
   audio_video_progress_bar: ^2.0.1
   flutter_media_metadata: ^1.0.0+1
+  uuid: ^4.4.0
 
 dev_dependencies:
   flutter_test:

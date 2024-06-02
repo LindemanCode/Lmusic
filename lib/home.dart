@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'utils/index.dart';
 import 'components/bottomPlay.dart';
+import 'package:uuid/uuid.dart';
 
 class MusicApp extends StatefulWidget {
   const MusicApp({Key? key}) : super(key: key);
@@ -121,6 +122,7 @@ class _MusicAppState extends State<MusicApp> {
   }
 
   Widget _normalList() {
+    var uuid = Uuid();
     return Column(
       children: [
         Row(
@@ -167,7 +169,7 @@ class _MusicAppState extends State<MusicApp> {
                             onPressed: () {
                               if (listName != '') {
                                 setState(() {
-                                  var item = { 'id': UniqueKey().toString(), 'name': listName, 'total': 0 };
+                                  var item = { 'id': uuid.v1(), 'name': listName, 'total': 0 };
                                   _itemList.insert(0, item);
                                   setLocalList('playList', _itemList);
                                   listName = '';

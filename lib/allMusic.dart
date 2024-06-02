@@ -7,6 +7,7 @@ import 'components/bottomPlay.dart';
 import 'dart:io';
 import 'package:flutter_media_metadata/flutter_media_metadata.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:uuid/uuid.dart';
 
 class AllMusic extends StatefulWidget {
   const AllMusic({Key? key}) : super(key: key);
@@ -16,7 +17,8 @@ class AllMusic extends StatefulWidget {
 }
 
 class _AllMusicPageState extends State<AllMusic> {
-  late Key _sListkey = UniqueKey();
+  var uuid = Uuid();
+  late Key _sListkey = Key(uuid.v1());
 
   @override
   void initState() {
@@ -59,7 +61,7 @@ class _AllMusicPageState extends State<AllMusic> {
                     var name = result.files[i].name;
                     var extension = result.files[i].extension;
                     var alias = metadata.trackName ?? name.split('.$extension')[0];
-                    var id = UniqueKey().toString();
+                    var id = uuid.v1();
                     var logoPath = '';
                     if (metadata.albumArt != null && directory != null) {
                       // 保存图片到应用文件目录
@@ -83,7 +85,7 @@ class _AllMusicPageState extends State<AllMusic> {
                   allSongList.insertAll(0, tempArr);
                   setLocalList('allMusic', allSongList);
                   setState(() {
-                    _sListkey = UniqueKey();
+                    _sListkey = Key(uuid.v1());
                   });
                 }
               }
