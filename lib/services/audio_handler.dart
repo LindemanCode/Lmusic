@@ -29,6 +29,8 @@ class MyAudioHandler extends BaseAudioHandler {
     try {
       await _player.setAudioSource(_playlist);
       _player.setLoopMode(LoopMode.all);
+      _player.setShuffleModeEnabled(true);
+      _player.setVolume(0.4);
     } catch (e) {
       print("Error: $e");
     }

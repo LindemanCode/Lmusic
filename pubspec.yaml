@@ -41,7 +41,7 @@ dependencies:
   provider: ^6.1.1
   flutter_slidable: ^3.0.1
   fluttertoast: ^8.2.4
-  audio_service: ^0.18.12
+  audio_service: ^0.18.16
   just_audio: ^0.9.36
   audio_session: ^0.1.18
   get_it: ^7.6.7

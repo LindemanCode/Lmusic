@@ -34,7 +34,6 @@ class PlayState with ChangeNotifier {
         children: pathList,
       );
       await _player.setAudioSource(playlist, initialIndex: songIdx, initialPosition: Duration.zero);
-      _player.setLoopMode(LoopMode.all);
       _player.currentIndexStream.listen((index) {
         song = songList[index];
         notifyListeners();
